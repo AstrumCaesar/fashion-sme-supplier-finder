@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1b8a6e">
+  <meta name="description" content="Find the right clothing supplier for your business">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231b8a6e' width='192' height='192'/><text x='50%' y='50%' font-size='120' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>F</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Fashion SME Supplier Finder</title>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🧵</span>
+          <div class="logo-text">
+            <h1>Supplier Finder</h1>
+            <p>Find the right supplier for your business</p>
+          </div>
+        </div>
+        <button class="profile-btn" aria-label="Profile">👤</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search Section -->
+      <section class="search-section">
+        <div class="section-title">
+          <h2>What clothing do you need?</h2>
+          <p>Tell us what you're looking for and we'll find the best suppliers for you.</p>
+        </div>
+
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="e.g. 500 oversized black T-shirts, under RM12 each, MOQ below 100, within 7 days"
+              aria-label="Search for suppliers"
+            >
+            <button class="voice-input-btn" aria-label="Voice input">🎤</button>
+          </div>
+          <button id="findButton" class="find-button">
+            <span>Find Suppliers</span>
+            <span class="arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Quick Filters Section -->
+      <section class="filters-section">
+        <div class="filters-header">
+          <h3>Quick Filters</h3>
+        </div>
+        <div class="filter-chips">
+          <button class="filter-chip" data-filter="underRM5" title="Show only suppliers with unit price under RM5">
+            <span class="filter-icon">💰</span>
+            <span>Under RM5/unit</span>
+          </button>
+          <button class="filter-chip" data-filter="moqUnder100" title="Show only suppliers with MOQ under 100">
+            <span class="filter-icon">📦</span>
+            <span>MOQ &lt;100</span>
+          </button>
+          <button class="filter-chip" data-filter="fastDelivery" title="Prioritize suppliers with delivery within 7 days">
+            <span class="filter-icon">🚚</span>
+            <span>Fast Delivery</span>
+          </button>
+          <button class="filter-chip" data-filter="within30km" title="Show only suppliers within 30 km">
+            <span class="filter-icon">📍</span>
+            <span>Within 30 km</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="results-section">
+        <div class="results-header">
+          <h3>Suppliers</h3>
+          <span class="results-count" id="resultsCount"></span>
+        </div>
+        <div class="results-container" id="results">
+          <!-- Results will be rendered here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="#" class="nav-item active" aria-label="Home">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="#" class="nav-item" aria-label="Suppliers">
+        <span class="nav-icon">🏭</span>
+        <span class="nav-label">Suppliers</span>
+      </a>
+      <a href="#" class="nav-item" aria-label="Shortlist">
+        <span class="nav-icon">❤️</span>
+        <span class="nav-label">Shortlist</span>
+      </a>
+      <a href="#" class="nav-item" aria-label="Profile">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Profile</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/parser.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
+    }
+  </script>
+</body>
+</html>
